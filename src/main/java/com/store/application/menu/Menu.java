@@ -1,4 +1,7 @@
 package com.store.application.menu;
 
-public class Menu {
+import com.store.application.console.ConsoleApplication;
+
+public interface Menu {
+    Menu show(ConsoleApplication consoleApp);
 }

@@ -1,4 +1,8 @@
 package com.store.application.command;
 
-public class Command {
+import com.store.application.console.ConsoleApplication;
+import com.store.application.menu.Menu;
+
+public interface Command {
+    Menu execute(ConsoleApplication consoleApp);
 }

@@ -1,4 +1,15 @@
 package com.store.domain.repositories;
 
-public class ProductRepository {
+import com.store.domain.models.Product;
+import java.util.List;
+import java.util.Optional;
+
+public interface ProductRepository {
+    List<Product> findAll();
+    Optional<Product> findById(Long id);
+    Product save(Product product);
+    void delete(Long id);
+
+    List<Product> findByName(String name);
+    List<Product> findByDepartmentId(Long departmentId);
 }
