@@ -9,11 +9,6 @@ import com.store.domain.repositories.ProductRepository;
 import com.store.domain.services.DepartmentService;
 import com.store.domain.services.ProductService;
 import com.store.sql.config.DBConnection;
-
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.sql.Connection;
-import java.sql.Statement;
 import java.util.Scanner;
 
 public class ConsoleApplication {
@@ -23,13 +18,8 @@ public class ConsoleApplication {
     private Menu currentMenu;
 
     public ConsoleApplication() {
-        // Создаем подключение к БД
         DBConnection dbConnection = new DBConnection();
 
-        // Инициализируем БД (создаем таблицы и заполняем данные)
-        initializeDatabase(dbConnection);
-
-        // Создаем JDBC репозитории
         DepartmentRepository departmentRepository = new JdbcDepartmentRepository(dbConnection);
         ProductRepository productRepository = new JdbcProductRepository(dbConnection);
 
@@ -39,24 +29,6 @@ public class ConsoleApplication {
         this.currentMenu = new MainMenu();
     }
 
-    private void initializeDatabase(DBConnection dbConnection) {
-        try (Connection connection = dbConnection.getConnection();
-             Statement statement = connection.createStatement()) {
-
-            // Читаем и выполняем schema.sql
-            String schemaSql = Files.readString(Path.of("src/main/resources/sql/schema.sql"));
-            statement.execute(schemaSql);
-
-            // Читаем и выполняем data.sql
-            String dataSql = Files.readString(Path.of("src/main/resources/sql/data.sql"));
-            statement.execute(dataSql);
-
-        } catch (Exception e) {
-            throw new RuntimeException("Ошибка инициализации базы данных: " + e.getMessage(), e);
-        }
-    }
-
-    // Остальные методы без изменений...
     public void start() {
         System.out.println("=== СИСТЕМА УПРАВЛЕНИЯ МАГАЗИНОМ ===");
         System.out.println("Добро пожаловать в систему управления товарами и отделами!");
