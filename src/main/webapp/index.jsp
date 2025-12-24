@@ -24,14 +24,14 @@
 </head>
 <body>
     <div class="container text-center">
-        <h1 class="mb-4">🏬 Система управления магазином</h1>
+        <h1 class="mb-4">Система управления магазином</h1>
         <p class="lead mb-5">Управление товарами и отделами</p>
 
         <div class="row">
             <div class="col-md-6 mb-4">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">📦 Управление товарами</h5>
+                        <h5 class="card-title">Управление товарами</h5>
                         <p class="card-text">Добавление, редактирование и удаление товаров</p>
                         <a href="products?action=list" class="btn btn-primary">Перейти к товарам</a>
                     </div>
@@ -41,7 +41,7 @@
             <div class="col-md-6 mb-4">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">🏪 Управление отделами</h5>
+                        <h5 class="card-title">Управление отделами</h5>
                         <p class="card-text">Управление отделами магазина</p>
                         <a href="departments?action=list" class="btn btn-primary">Перейти к отделам</a>
                     </div>
@@ -51,7 +51,7 @@
 
         <div class="mt-5">
             <a href="departments?action=withoutProducts" class="btn btn-outline-info me-2">
-                📭 Отделы без товаров
+                Отделы без товаров
             </a>
         </div>
     </div>

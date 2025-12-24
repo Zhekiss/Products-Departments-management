@@ -20,8 +20,8 @@
         </c:if>
 
         <div class="mb-3">
-            <a href="products?action=new" class="btn btn-success">➕ Добавить товар</a>
-            <a href="index.jsp" class="btn btn-secondary">🏠 На главную</a>
+            <a href="products?action=new" class="btn btn-success">Добавить товар</a>
+            <a href="index.jsp" class="btn btn-secondary">На главную</a>
         </div>
 
         <table class="table table-striped">
@@ -43,7 +43,7 @@
                         <td>${product.departmentId}</td>
                         <td>
                             <a href="products?action=edit&id=${product.productId}"
-                               class="btn btn-sm btn-warning">✏️ Редактировать</a>
+                               class="btn btn-sm btn-warning">Редактировать</a>
                             <a href="products?action=delete&id=${product.productId}"
                                class="btn btn-sm btn-danger"
                                onclick="return confirm('Удалить товар?')">🗑️ Удалить</a>

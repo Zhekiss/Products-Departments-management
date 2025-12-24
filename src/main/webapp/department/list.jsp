@@ -15,8 +15,8 @@
         </c:if>
 
         <div class="mb-3">
-            <a href="departments?action=new" class="btn btn-success">➕ Добавить отдел</a>
-            <a href="index.jsp" class="btn btn-secondary">🏠 На главную</a>
+            <a href="departments?action=new" class="btn btn-success">Добавить отдел</a>
+            <a href="index.jsp" class="btn btn-secondary">На главную</a>
         </div>
 
         <table class="table table-striped">
@@ -36,12 +36,12 @@
                         <td>${department.workingHours}</td>
                         <td>
                             <a href="departments?action=edit&id=${department.departmentId}"
-                               class="btn btn-sm btn-warning">✏️ Редактировать</a>
+                               class="btn btn-sm btn-warning">Редактировать</a>
                             <a href="departments?action=delete&id=${department.departmentId}"
                                class="btn btn-sm btn-danger"
-                               onclick="return confirm('Удалить отдел?')">🗑️ Удалить</a>
+                               onclick="return confirm('Удалить отдел?')">Удалить</a>
                             <a href="products?action=byDepartment&departmentId=${department.departmentId}"
-                               class="btn btn-sm btn-info">📦 Товары</a>
+                               class="btn btn-sm btn-info">Товары</a>
                         </td>
                     </tr>
                 </c:forEach>
