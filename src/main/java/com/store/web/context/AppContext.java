@@ -37,8 +37,6 @@ public class AppContext implements AutoCloseable {
     @Override
     public void close() throws SQLException {
         if (dbConnection != null) {
-            // Если в DBConnection есть метод close()
-            // dbConnection.close();
         }
     }
 
@@ -48,9 +46,5 @@ public class AppContext implements AutoCloseable {
 
     public ProductService getProductService() {
         return productService;
-    }
-
-    public DBConnection getDbConnection() {
-        return dbConnection;
     }
 }

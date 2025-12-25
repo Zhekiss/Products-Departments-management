@@ -21,32 +21,27 @@ public class DepartmentServlet extends HttpServlet {
         String action = request.getParameter("action");
 
         if (action == null || action.equals("list")) {
-            // Показать все отделы
             List<Department> departments = AppContext.getInstance()
                     .getDepartmentService().getAllDepartments();
             request.setAttribute("departments", departments);
             request.getRequestDispatcher("/department/list.jsp").forward(request, response);
 
         } else if (action.equals("new")) {
-            // Форма создания нового отдела
             request.getRequestDispatcher("/department/form.jsp").forward(request, response);
 
         } else if (action.equals("edit")) {
-            // Форма редактирования отдела
             Long id = Long.parseLong(request.getParameter("id"));
             AppContext.getInstance().getDepartmentService().getDepartmentById(id)
                     .ifPresent(department -> request.setAttribute("department", department));
             request.getRequestDispatcher("/department/form.jsp").forward(request, response);
 
         } else if (action.equals("delete")) {
-            // Удаление отдела
             Long id = Long.parseLong(request.getParameter("id"));
             boolean deleted = AppContext.getInstance().getDepartmentService().deleteDepartment(id);
             request.setAttribute("message", deleted ? "Отдел удален" : "Не удалось удалить отдел");
             response.sendRedirect("departments?action=list");
 
         } else if (action.equals("withoutProducts")) {
-            // Отделы без товаров
             List<Department> departments = AppContext.getInstance()
                     .getDepartmentService().getDepartmentsWithoutProducts();
             request.setAttribute("departments", departments);
@@ -64,12 +59,10 @@ public class DepartmentServlet extends HttpServlet {
         String workingHours = request.getParameter("workingHours");
 
         if (idParam == null || idParam.isEmpty()) {
-            // Создание нового отдела
             Department department = AppContext.getInstance()
                     .getDepartmentService().createDepartment(name, workingHours);
             request.setAttribute("message", "Отдел создан: " + department.getName());
         } else {
-            // Обновление существующего отдела
             Long id = Long.parseLong(idParam);
             boolean updated = AppContext.getInstance()
                     .getDepartmentService().updateDepartment(id, name, workingHours);
